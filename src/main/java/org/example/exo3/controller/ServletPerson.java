@@ -19,7 +19,7 @@ public class ServletPerson extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        persons = new ArrayList<>();
+        this.persons = new ArrayList<>();
         persons.add(new Person("John" , "Doe" , 30));
         persons.add(new Person("Jane" , "Doe" , 25));
         persons.add(new Person("Jane" , "Smith" , 20));
@@ -29,8 +29,6 @@ public class ServletPerson extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req , HttpServletResponse resp) throws ServletException, IOException {
-
-
        req.setAttribute("persons" , persons);
         getServletContext().getRequestDispatcher("/exo3.jsp").forward(req , resp);
     }

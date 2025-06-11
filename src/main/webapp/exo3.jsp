@@ -5,10 +5,10 @@
   Time: 09:02
   To change this template use File | Settings | File Templates.
 --%>
-<jsp:useBean id="name" type="java.lang.String" scope="request" />
-<jsp:useBean id="surname" type="java.lang.String" scope="request" />
-<jsp:useBean id="age" type="java.lang.Integer" scope="request" />
-<jsp:useBean id="persons"  type="java.util.ArrayList<java.lang.String>" scope="request" />
+<%--<jsp:useBean id="name" type="java.lang.String" scope="request" />--%>
+<%--<jsp:useBean id="surname" type="java.lang.String" scope="request" />--%>
+<%--<jsp:useBean id="age" type="java.lang.Integer" scope="request" />--%>
+<jsp:useBean id="persons" type="java.util.ArrayList<org.example.exo3.model.Person>" scope="request" />
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -19,68 +19,32 @@
 <body>
 <h1>Ma liste de personne</h1>
 
-${persons}
+
 
 <table class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+
+        <th scope="col">name</th>
+        <th scope="col">surname</th>
+        <th scope="col">age</th>
     </tr>
     </thead>
     <tbody>
+    <% for (org.example.exo3.model.Person p : persons) { %>
+
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+
+        <td><%=p.getName()%></td>
+        <td><%=p.getSurname()%></td>
+        <td><%=p.getAge()%></td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
+
+    <% } %>
+
     </tbody>
 </table>
 
-<table class="table">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
+
 </body>
 </html>
